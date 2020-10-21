@@ -18,6 +18,22 @@ namespace TechJobsOO
             Value = value;
         }
 
+        public string ToString(string value)
+        {
+            return Value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+        
+
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.
     }
 }

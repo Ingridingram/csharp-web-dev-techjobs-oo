@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using TechJobsOO;
 
 namespace TechJobsTests
@@ -19,7 +20,7 @@ namespace TechJobsTests
         [TestMethod]
         public void TestJobConstructorSetsAllFields()
         {
-            Job Job3 = new Job("Product Tester", "ACME", "Desert", "Quality Control", "Persistence");
+            Job Job3 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
 
             Assert.IsTrue(Job3.Name == "Product Tester");
             Assert.IsTrue(Job3.EmployerName.Value == "ACME");
@@ -31,9 +32,17 @@ namespace TechJobsTests
         [TestMethod]
         public void TestJobForEquality()
         {
-            Job Job4 = new Job("Product Tester", "ACME", "Desert", "Quality Control", "Persistence");
-            Job Job5 = new Job("Product Tester", "ACME", "Desert", "Quality Control", "Persistence");
+            Job Job4 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+            Job Job5 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
             Assert.IsFalse(Job.Equals(Job4.Id, Job5.Id));
+        }
+
+        [TestMethod]
+        public void TestToString()
+        {
+            Job Job6 = new Job("", new Employer(""), new Location("Kansas City"), new PositionType(""), new CoreCompetency(""));
+            Assert.AreEqual(Job6.ToString(), $"ID: {Job6.Id} \n Name: {Job6.Name} \n Employer: {Job6.EmployerName} \n Location: {Job6.EmployerLocation} \n Position Type: {Job6.JobType.Value} \n Core Competency: {Job6.JobCoreCompetency}");
         }
     }
 }
+

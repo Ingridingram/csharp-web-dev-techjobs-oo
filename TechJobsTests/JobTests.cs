@@ -25,7 +25,7 @@ namespace TechJobsTests
             Assert.IsTrue(Job3.Name == "Product Tester");
             Assert.IsTrue(Job3.EmployerName.Value == "ACME");
             Assert.IsTrue(Job3.EmployerLocation.Value == "Desert");
-            Assert.IsTrue(Job3.JobCoreCompetency.ToString() == "Persistence");
+            Assert.IsTrue(Job3.JobCoreCompetency.Value == "Persistence");
 
         }
 
@@ -41,7 +41,7 @@ namespace TechJobsTests
         public void TestToString()
         {
             Job Job6 = new Job("", new Employer(""), new Location("Kansas City"), new PositionType(""), new CoreCompetency(""));
-            Assert.AreEqual(Job6.ToString(), $"ID: {Job6.Id} \n Name: {Job6.Name} \n Employer: {Job6.EmployerName} \n Location: {Job6.EmployerLocation} \n Position Type: {Job6.JobType.Value} \n Core Competency: {Job6.JobCoreCompetency}");
+            Assert.AreEqual(Job6.ToString(), $"ID: {Job6.Id} \n Name: {Job6.Name} \n Employer: {Job6.EmployerName.Value} \n Location: {Job6.EmployerLocation.Value} \n Position Type: {Job6.JobType.Value} \n Core Competency: {Job6.JobCoreCompetency.Value}");
         }
     }
 }

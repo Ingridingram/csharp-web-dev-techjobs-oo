@@ -10,6 +10,11 @@ namespace TechJobsOO
         public int Id { get; }
         private static int nextId = 1;
 
+        public JobField(string value)
+        {
+           Value = value;
+        }
+
         public JobField()
         {
             Id = nextId;

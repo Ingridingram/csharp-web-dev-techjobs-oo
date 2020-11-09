@@ -3,9 +3,8 @@ namespace TechJobsOO
 {
     public class Location : JobField
     {
-        public Location(string value) 
+        public Location(string Value) : base(Value)
         {
-            Value = value;
         }
     }
 }
